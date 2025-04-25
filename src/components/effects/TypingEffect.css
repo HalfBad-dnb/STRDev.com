@@ -1,0 +1,36 @@
+.typing-effect {
+  display: inline-flex;
+  align-items: center;
+}
+
+.typing-text {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.caret {
+  display: inline-block;
+  font-weight: 100;
+  color: #64ffda;
+  font-size: 1.2em;
+  margin-left: 2px;
+  animation: caretBlink 0.5s infinite;
+}
+
+.caret.visible {
+  opacity: 1;
+}
+
+.caret.hidden {
+  opacity: 0;
+}
+
+@keyframes caretBlink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}

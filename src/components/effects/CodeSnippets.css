@@ -1,0 +1,473 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400&display=swap');
+
+.code-snippets-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Negative z-index to ensure it stays behind all content */
+  pointer-events: none;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(10, 25, 47, 0.98) 0%, rgba(17, 34, 64, 0.98) 100%);
+}
+
+/* Base code snippet style */
+.code-snippet {
+  position: absolute;
+  max-width: 450px;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: rgba(30, 30, 30, 0.7);
+  box-shadow: 0 0 20px rgba(0, 150, 255, 0.3);
+  -webkit-backdrop-filter: blur(2px); /* Safari compatibility */
+  backdrop-filter: blur(2px);
+  border: 1px solid rgba(58, 150, 175, 0.5);
+  font-family: 'JetBrains Mono', monospace;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  font-size: 12px;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 1); /* Base text color, now white */
+  text-shadow: 0 0 10px rgba(100, 255, 218, 0.8); /* Enhanced glow effect */
+  background: rgba(13, 17, 23, 0.85); /* GitHub-like dark background */
+}
+
+/* Language-specific themes */
+.code-snippet.javascript-theme {
+  background-color: rgba(40, 44, 52, 0.75);
+  border: 1px solid rgba(97, 175, 239, 0.6);
+  box-shadow: 0 0 25px rgba(97, 175, 239, 0.35);
+}
+
+.code-snippet.python-theme {
+  background-color: rgba(35, 39, 46, 0.75);
+  border: 1px solid rgba(255, 203, 107, 0.6);
+  box-shadow: 0 0 25px rgba(255, 203, 107, 0.35);
+}
+
+.code-snippet.rust-theme {
+  background-color: rgba(45, 43, 46, 0.75);
+  border: 1px solid rgba(249, 130, 108, 0.6);
+  box-shadow: 0 0 25px rgba(249, 130, 108, 0.35);
+}
+
+.code-snippet.csharp-theme {
+  background-color: rgba(30, 40, 50, 0.75);
+  border: 1px solid rgba(78, 201, 176, 0.6);
+  box-shadow: 0 0 25px rgba(78, 201, 176, 0.35);
+}
+
+.code-snippet.sql-theme {
+  background-color: rgba(27, 39, 56, 0.75);
+  border: 1px solid rgba(86, 156, 214, 0.6);
+  box-shadow: 0 0 25px rgba(86, 156, 214, 0.4);
+}
+
+.code-snippet.go-theme {
+  background-color: rgba(32, 39, 52, 0.75);
+  border: 1px solid rgba(83, 214, 177, 0.6);
+  box-shadow: 0 0 25px rgba(83, 214, 177, 0.35);
+}
+
+.code-snippet.vue-theme {
+  background-color: rgba(36, 41, 51, 0.75);
+  border: 1px solid rgba(65, 184, 131, 0.6);
+  box-shadow: 0 0 25px rgba(65, 184, 131, 0.35);
+}
+
+.code-snippet.java-theme {
+  background-color: rgba(43, 48, 59, 0.75);
+  border: 1px solid rgba(223, 97, 97, 0.6);
+  box-shadow: 0 0 25px rgba(223, 97, 97, 0.35);
+}
+
+.code-snippet.redux-theme {
+  background-color: rgba(40, 35, 55, 0.75);
+  border: 1px solid rgba(118, 74, 188, 0.6);
+  box-shadow: 0 0 25px rgba(118, 74, 188, 0.35);
+}
+
+.code-snippet.swift-theme {
+  background-color: rgba(39, 40, 45, 0.75);
+  border: 1px solid rgba(255, 122, 69, 0.6);
+  box-shadow: 0 0 25px rgba(255, 122, 69, 0.35);
+}
+
+/* Additional visual variety */
+.code-snippet.large {
+  font-size: 14px;
+}
+
+.code-snippet.medium {
+  font-size: 12px;
+}
+
+.code-snippet.small {
+  font-size: 10px;
+}
+
+.code-snippet.high-opacity {
+  background-color: rgba(40, 44, 52, 0.85);
+}
+
+.code-snippet.medium-opacity {
+  background-color: rgba(40, 44, 52, 0.75);
+}
+
+.code-snippet.low-opacity {
+  background-color: rgba(40, 44, 52, 0.65);
+}
+
+.code-snippet.rounded {
+  border-radius: 12px;
+}
+
+.code-snippet.very-rounded {
+  border-radius: 16px;
+}
+
+.code-snippet.more-blur {
+  padding: 12px;
+  box-shadow: 
+    0 0 20px rgba(100, 255, 218, 0.5), /* Primary glow */
+    0 0 40px rgba(45, 212, 191, 0.3), /* Secondary glow */
+    0 0 80px rgba(16, 185, 129, 0.2); /* Tertiary glow */
+  transform: scale(0.98); /* Slightly larger */
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  opacity: 1; /* Fully visible */
+}
+
+.code-snippet pre {
+  margin: 0;
+  white-space: pre-wrap;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Syntax highlighting classes - VS Code themes */
+
+/* Keywords and language constructs */
+.code-snippet .keyword {
+  color: #569CD6; /* Blue */
+  font-weight: bold;
+}
+
+.code-snippet .type-keyword {
+  color: #569CD6; /* Blue */
+  font-weight: bold;
+}
+
+.code-snippet .this {
+  color: #569CD6; /* Blue */
+  font-weight: bold;
+}
+
+.code-snippet .type {
+  color: #4EC9B0; /* Teal */
+}
+
+.code-snippet .class {
+  color: #4EC9B0; /* Teal */
+}
+
+.code-snippet .function {
+  color: #DCDCAA; /* Golden/Yellow */
+}
+
+/* Variables and properties */
+.code-snippet .variable {
+  color: #9CDCFE; /* Light blue */
+}
+
+.code-snippet .property {
+  color: #9CDCFE; /* Light blue */
+}
+
+/* Literals */
+.code-snippet .string {
+  color: #CE9178; /* Orange/Rust */
+}
+
+.code-snippet .template-string {
+  color: #CE9178; /* Orange/Rust */
+}
+
+.code-snippet .number {
+  color: #B5CEA8; /* Light green */
+}
+
+.code-snippet .boolean {
+  color: #569CD6; /* Blue */
+  font-weight: bold;
+}
+
+/* Operators and syntax */
+.code-snippet .operator {
+  color: #D4D4D4; /* Light gray */
+}
+
+.code-snippet .punctuation {
+  color: #D4D4D4; /* Light gray */
+}
+
+/* Comments and documentation - base style */
+.code-snippet .comment {
+  color: #6A9955; /* Green */
+  font-style: italic;
+}
+
+.code-snippet .docstring {
+  color: #6A9955; /* Green */
+  font-style: italic;
+}
+
+/* Language-specific syntax color overrides */
+
+/* Python-specific colors */
+.code-snippet.python-theme .comment, 
+.code-snippet.python-theme .docstring {
+  color: #8DB255; /* Brighter green */
+}
+
+.code-snippet.python-theme .function {
+  color: #D0A344; /* Golden/Yellow */
+}
+
+.code-snippet.python-theme .keyword {
+  color: #FF8F40; /* Orange */
+}
+
+.code-snippet.python-theme .variable {
+  color: #79CDCD; /* Cyan */
+}
+
+.code-snippet.python-theme .string {
+  color: #CE9178; /* Orange/Rust */
+}
+
+.code-snippet.python-theme .type-keyword,
+.code-snippet.python-theme .class {
+  color: #4EC9B0; /* Teal */
+}
+
+/* Rust-specific colors */
+.code-snippet.rust-theme .keyword {
+  color: #FF7085; /* Pinkish red */
+}
+
+.code-snippet.rust-theme .function {
+  color: #39C8B0; /* Turquoise */
+}
+
+.code-snippet.rust-theme .string {
+  color: #D4D47C; /* Light yellow */
+}
+
+.code-snippet.rust-theme .variable,
+.code-snippet.rust-theme .property {
+  color: #9CDFDF; /* Light cyan */
+}
+
+.code-snippet.rust-theme .punctuation {
+  color: #E4E4E4; /* Lighter gray */
+}
+
+/* C# colors - Visual Studio style */
+.code-snippet.csharp-theme .class {
+  color: #4EC9B0; /* Teal */
+}
+
+.code-snippet.csharp-theme .function {
+  color: #DCDCAA; /* Yellow */
+}
+
+.code-snippet.csharp-theme .keyword {
+  color: #569CD6; /* Blue */
+  font-weight: bold;
+}
+
+.code-snippet.csharp-theme .string {
+  color: #D69D85; /* Light brown */
+}
+
+.code-snippet.csharp-theme .comment {
+  color: #57A64A; /* Dark green */
+}
+
+/* Go-specific colors */
+.code-snippet.go-theme .keyword {
+  color: #FF7B72; /* Red-orange */
+}
+
+.code-snippet.go-theme .function {
+  color: #79C0FF; /* Light blue */
+}
+
+.code-snippet.go-theme .string {
+  color: #A5D6FF; /* Very light blue */
+}
+
+.code-snippet.go-theme .type-keyword,
+.code-snippet.go-theme .type {
+  color: #FF9AC1; /* Pink */
+}
+
+/* SQL colors */
+.code-snippet.sql-theme .sql-keyword {
+  color: #479BD0; /* Medium blue */
+  font-weight: bold;
+}
+
+.code-snippet.sql-theme .function {
+  color: #BADA55; /* Light greenish */
+}
+
+.code-snippet.sql-theme .string {
+  color: #CD9077; /* Terracotta */
+}
+
+.code-snippet.sql-theme .number {
+  color: #B5CEA8; /* Light green */
+  font-weight: bold;
+}
+
+/* Java-specific colors */
+.code-snippet.java-theme .class {
+  color: #FF8000; /* Orange */
+}
+
+.code-snippet.java-theme .function {
+  color: #FFC66D; /* Light orange */
+}
+
+.code-snippet.java-theme .keyword {
+  color: #CC7832; /* Rusty orange */
+  font-weight: bold;
+}
+
+.code-snippet.java-theme .string {
+  color: #6A8759; /* Olive green */
+}
+
+.code-snippet.java-theme .decorator {
+  color: #BBB529; /* Mustard */
+}
+
+/* Vue/template colors */
+.code-snippet.vue-theme .tag {
+  color: #F07178; /* Salmon */
+}
+
+.code-snippet.vue-theme .attribute {
+  color: #FFCB6B; /* Yellow */
+}
+
+.code-snippet.vue-theme .string {
+  color: #C3E88D; /* Light green */
+}
+
+.code-snippet.vue-theme .punctuation {
+  color: #89DDFF; /* Light blue */
+}
+
+/* Redux/React colors */
+.code-snippet.redux-theme .function {
+  color: #C6C5FE; /* Light purple */
+}
+
+.code-snippet.redux-theme .string {
+  color: #A5C261; /* Light green */
+}
+
+.code-snippet.redux-theme .variable {
+  color: #D8A0DF; /* Light purple */
+}
+
+.code-snippet.redux-theme .keyword {
+  color: #7686BB; /* Slate blue */
+}
+
+/* Swift colors */
+.code-snippet.swift-theme .type,
+.code-snippet.swift-theme .class {
+  color: #FF5D99; /* Hot pink */
+}
+
+.code-snippet.swift-theme .function {
+  color: #41A1C0; /* Teal blue */
+}
+
+.code-snippet.swift-theme .keyword {
+  color: #F97CA9; /* Pink */
+  font-weight: bold;
+}
+
+.code-snippet.swift-theme .string {
+  color: #FC6A5D; /* Coral */
+}
+
+/* Framework-specific */
+.code-snippet .framework {
+  color: #C586C0; /* Pink/Purple */
+}
+
+.code-snippet .decorator {
+  color: #C586C0; /* Pink/Purple */
+}
+
+/* SQL */
+.code-snippet .sql-keyword {
+  color: #569CD6; /* Blue */
+  font-weight: bold;
+}
+
+/* HTML/XML */
+.code-snippet .tag {
+  color: #569CD6; /* Blue */
+}
+
+.code-snippet .attribute {
+  color: #9CDCFE; /* Light blue */
+}
+
+/* Special tokens for language variety */
+.code-snippet .regex {
+  color: #D16969; /* Red */
+}
+
+.code-snippet .namespace {
+  color: #4EC9B0; /* Teal */
+}
+
+.code-snippet .escape-character {
+  color: #D7BA7D; /* Gold */
+}
+
+/* Language-specific styles */
+
+/* Rust */
+.code-snippet .lifetime {
+  color: #D7BA7D; /* Gold */
+}
+
+/* Python */
+.code-snippet .self {
+  color: #569CD6; /* Blue */
+  font-weight: bold;
+}
+
+/* C# */
+.code-snippet .directive {
+  color: #C586C0; /* Pink/Purple */
+}
+
+/* Media queries for responsive design */
+@media (max-width: 768px) {
+  .code-snippet {
+    width: 250px;
+    max-height: 150px;
+    font-size: 8px;
+    display: none; /* Hide on mobile for better performance */
+  }
+}

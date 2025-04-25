@@ -1,38 +1,154 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', 'Helvetica Neue', sans-serif;
+}
+
+:root {
+  --color-bg-primary: #0a192f;
+  --color-bg-secondary: #112240;
+  --color-text-primary: #ccd6f6;
+  --color-text-secondary: #8892b0;
+  --color-accent: #64ffda;
+  --color-accent-alpha: rgba(100, 255, 218, 0.1);
+  --shadow-primary: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: transparent;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+  position: relative;
+  overflow-x: hidden;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.content-wrapper {
+  position: relative;
+  z-index: 1;
+  background: transparent;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+main {
+  min-height: 100vh;
+  background: transparent;
+}
+
+button, input, textarea, select {
+  font-family: inherit;
+}
+
+.primary-btn, .secondary-btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.primary-btn {
+  color: var(--color-accent);
+  border: 2px solid var(--color-accent);
+}
+
+.primary-btn:hover {
+  background-color: var(--color-accent-alpha);
+  color: var(--color-accent);
+}
+
+.secondary-btn {
+  color: var(--color-accent);
+  border: 2px solid var(--color-accent);
+}
+
+.secondary-btn:hover {
+  background-color: var(--color-accent-alpha);
+  opacity: 0.9;
+}
+
+/* Section styling */
+section {
+  padding: 6rem 0;
+  position: relative;
+  background: transparent !important; /* Force transparency */
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+section:nth-child(even) {
+  background: transparent !important; /* Force transparency */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-text-primary);
+  margin-bottom: 1rem;
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  opacity: 0.8;
+}
+
+/* Card and container styling */
+.card {
+  background: transparent;
+  border-radius: 4px;
+  padding: 1.5rem;
+  border: 1px solid rgba(100, 255, 218, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* For larger screens */
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1320px;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+/* For medium screens */
+@media (max-width: 992px) {
+  section {
+    padding: 4rem 0;
+  }
+}
+
+/* For small screens */
+@media (max-width: 768px) {
+  section {
+    padding: 3rem 0;
+  }
+  
+  .container {
+    width: 95%;
+    padding: 0 1rem;
   }
 }

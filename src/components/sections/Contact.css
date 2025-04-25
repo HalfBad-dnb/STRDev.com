@@ -1,0 +1,172 @@
+.contact {
+  padding: 6rem 0;
+  background-color: transparent !important; /* Override the section background from App.css */
+  position: relative;
+  z-index: 2;
+}
+
+.contact .section-header h2,
+.contact .section-header .underline {
+  background-color: transparent;
+}
+
+.contact-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  background-color: transparent;
+  position: relative;
+  padding: 2rem;
+  border-radius: 8px;
+  z-index: 1;
+}
+
+.contact-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(10, 25, 47, 0.6);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
+  z-index: -1;
+}
+
+.contact-info {
+  color: #8892b0;
+  background-color: transparent;
+}
+
+.contact-info h3 {
+  font-size: 1.8rem;
+  color: #ccd6f6;
+  margin-bottom: 1.5rem;
+  background-color: transparent;
+}
+
+.contact-info p {
+  margin-bottom: 2rem;
+  line-height: 1.7;
+  background-color: transparent;
+  -webkit-backdrop-filter: blur(1px);
+  backdrop-filter: blur(1px);
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background-color: transparent;
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  background-color: rgba(10, 25, 47, 0.3);
+  border-radius: 4px;
+  padding: 10px;
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+}
+
+.contact-item .icon {
+  color: #64ffda;
+  font-size: 1.5rem;
+  min-width: 30px;
+  background-color: transparent;
+}
+
+.contact-item .text h4 {
+  color: #ccd6f6;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  background-color: transparent;
+}
+
+.contact-form {
+  background-color: transparent;
+}
+
+.contact-form h3 {
+  font-size: 1.8rem;
+  color: #ccd6f6;
+  margin-bottom: 1.5rem;
+  background-color: transparent;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+  background-color: transparent;
+}
+
+.form-group label {
+  display: block;
+  color: #ccd6f6;
+  margin-bottom: 0.5rem;
+  background-color: transparent;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: rgba(23, 42, 69, 0.5);
+  border: 1px solid rgba(35, 53, 84, 0.5);
+  border-radius: 4px;
+  color: #ccd6f6;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #64ffda;
+  background-color: rgba(23, 42, 69, 0.7);
+}
+
+.form-group textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.submit-btn {
+  background-color: transparent;
+  color: #64ffda;
+  border: 1px solid #64ffda;
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: rgba(100, 255, 218, 0.1);
+}
+
+.form-success {
+  background-color: rgba(100, 255, 218, 0.1);
+  border: 1px solid #64ffda;
+  border-radius: 4px;
+  color: #64ffda;
+  padding: 1.5rem;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 992px) {
+  .contact-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .contact-info {
+    margin-bottom: 2rem;
+  }
+}
