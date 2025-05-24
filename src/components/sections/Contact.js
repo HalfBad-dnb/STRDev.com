@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Contact.css';
 import { FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
+import SectionHeader from '../common/SectionHeader';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -38,10 +39,16 @@ const Contact = () => {
   return (
     <section id="contact" className="contact">
       <div className="container">
-        <div className="section-header">
-          <h2>Get In Touch</h2>
-          <div className="underline"></div>
-        </div>
+        <SectionHeader 
+          title="Get In Touch"
+          subtitle="Have a question or want to work together? Feel free to reach out!"
+          typingTexts={[
+            'Get In Touch',
+            'Contact Me',
+            'Reach Out',
+            'Let\'s Connect'
+          ]}
+        />
         <div className="contact-content">
           <div className="contact-info">
             <h3>Contact Information</h3>

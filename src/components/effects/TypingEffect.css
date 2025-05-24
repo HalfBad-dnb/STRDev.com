@@ -15,7 +15,7 @@
   color: #64ffda;
   font-size: 1.2em;
   margin-left: 2px;
-  animation: caretBlink 0.5s infinite;
+  transition: opacity 0.1s;
 }
 
 .caret.visible {
@@ -24,13 +24,4 @@
 
 .caret.hidden {
   opacity: 0;
-}
-
-@keyframes caretBlink {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
 }

@@ -1,6 +1,8 @@
 import React from 'react';
 import './Projects.css';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
+import SectionHeader from '../common/SectionHeader';
+import evxImage from '../../assets/evx.png';
 
 const Projects = () => {
   const projects = [
@@ -15,12 +17,12 @@ const Projects = () => {
     },
     {
       id: 2,
-      title: 'Task Management App',
-      description: 'A productivity application for managing tasks, projects, and deadlines with team collaboration features.',
-      technologies: ['React', 'Redux', 'Firebase', 'Material UI'],
-      image: 'project-placeholder.jpg',
-      githubLink: 'https://github.com',
-      liveLink: 'https://project-demo.com'
+      title: 'Electric vehicle experience, E-Moto rental platform',
+      description: 'Informational website for electric vehicle rental platform.',
+      technologies: ['React', 'HTML', 'CSS', 'JavaScript', 'react-i18next (for multi-language support)'],
+      image: evxImage,
+      githubLink: 'https://github.com/HalfBad-dnb/E-Bikes',
+      liveLink: 'https://evx.lt/'
     },
     {
       id: 3,
@@ -63,15 +65,20 @@ const Projects = () => {
   return (
     <section id="projects" className="projects">
       <div className="container">
-        <div className="section-header">
-          <h2>My Projects</h2>
-          <div className="underline"></div>
-        </div>
+        <SectionHeader 
+          title="My Projects"
+          typingTexts={[
+            'My Projects',
+            'My Work',
+            'Portfolio',
+            'Case Studies'
+          ]}
+        />
         <div className="projects-grid">
           {projects.map(project => (
             <div className="project-card" key={project.id}>
               <div className="project-img">
-                <div className="placeholder-img"></div>
+                <img src={project.image} alt={project.title} className="project-image" />
               </div>
               <div className="project-content">
                 <h3 className="project-title">{project.title}</h3>

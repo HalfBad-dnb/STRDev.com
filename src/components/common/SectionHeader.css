@@ -1,0 +1,36 @@
+.section-header {
+  text-align: center;
+  margin: 0 auto 4rem;
+  max-width: 100%;
+  width: 100%;
+}
+
+.section-header h2 {
+  font-size: 2.5rem;
+  color: #ccd6f6;
+  position: relative;
+  display: inline-block;
+  margin: 0 auto 1rem;
+  text-align: center;
+  width: 100%;
+}
+
+.underline {
+  height: 4px;
+  width: 50px;
+  border-bottom: 4px solid #64ffda;
+  margin: 0 auto;
+}
+
+.section-subtitle {
+  color: #8892b0;
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Typing effect cursor is handled in TypingEffect component */
+.typing-effect {
+  display: inline-block;
+  min-height: 2.5rem; /* Match the height of the text */
+  vertical-align: middle;
+}

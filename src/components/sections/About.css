@@ -1,11 +1,17 @@
 .about {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
   padding: 6rem 0;
   background: transparent !important;
+  position: relative;
 }
 
 .section-header {
   text-align: center;
-  margin-bottom: 4rem;
+  margin: 0 auto 4rem;
+  max-width: 100%;
+  width: 100%;
 }
 
 .section-header h2 {
@@ -13,7 +19,9 @@
   color: #ccd6f6;
   position: relative;
   display: inline-block;
-  margin-bottom: 1rem;
+  margin: 0 auto 1rem;
+  text-align: center;
+  width: 100%;
 }
 
 .underline {
@@ -24,15 +32,14 @@
 }
 
 .about-content {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 3rem;
-  align-items: center;
-  background: transparent;
+  max-width: 1200px;
+  width: 100%;
   position: relative;
   padding: 2rem;
   border-radius: 8px;
   z-index: 1;
+  margin: 0 auto;
+  background: transparent;
 }
 
 .about-content::before {
@@ -49,42 +56,16 @@
   z-index: -1;
 }
 
-.about-image {
-  position: relative;
-}
-
-.image-container {
-  position: relative;
-  width: 100%;
-  max-width: 300px;
-  margin: 0 auto;
-}
-
-.placeholder-image {
-  width: 100%;
-  padding-bottom: 120%; /* Aspect ratio 5:6 */
-  border: 2px solid #64ffda;
-  border-radius: 5px;
-  position: relative;
-  background: transparent;
-}
-
-.placeholder-image::after {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border: 2px solid #64ffda;
-  top: 20px;
-  left: 20px;
-  z-index: -1;
-  border-radius: 5px;
-}
+/* Image styles removed */
 
 .about-text h3 {
   font-size: 1.75rem;
-  margin-bottom: 1.5rem;
+  margin: 0 auto 1.5rem;
   color: #ccd6f6;
+  font-weight: 600;
+  text-align: center;
+  width: 100%;
+  max-width: 100%;
 }
 
 .about-text p {
@@ -98,7 +79,9 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
-  margin: 2rem 0;
+  margin: 2rem auto;
+  max-width: 600px;
+  width: 100%;
 }
 
 .detail {
@@ -118,20 +101,30 @@
 
 .about-cta {
   display: flex;
+  justify-content: center;
   gap: 1rem;
-  margin-top: 1.5rem;
+  margin: 1.5rem auto 0;
+  width: 100%;
+  max-width: 100%;
 }
 
 @media (max-width: 992px) {
   .about-content {
     grid-template-columns: 1fr;
-  }
-  
-  .about-image {
-    margin-bottom: 2rem;
+    padding: 1.5rem;
   }
   
   .about-details {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .about {
+    padding: 5rem 0;
+  }
+  
+  .about-content {
+    padding: 1.25rem;
   }
 }

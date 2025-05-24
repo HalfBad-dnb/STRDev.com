@@ -2,6 +2,7 @@ import React from 'react';
 import './Hero.css';
 import { FaGithub, FaLinkedin, FaArrowDown } from 'react-icons/fa';
 import TypingEffect from '../effects/TypingEffect';
+import profileImage from '../../assets/strdev.jpg';
 
 const Hero = () => {
   return (
@@ -10,7 +11,7 @@ const Hero = () => {
         <div className="hero-content">
           <div className="hero-image">
             <div className="image-container">
-              <div className="placeholder-image"></div>
+              <img src={profileImage} alt="STR Dev" className="profile-image" />
             </div>
           </div>
           <div className="hero-text-content">
@@ -33,7 +34,11 @@ const Hero = () => {
               </span>
             </h1>
             <p className="hero-text">
-              Building elegant solutions to complex problems through clean, efficient code.
+            We are a reliable partner in the field of digital solutions. We help implement website development projects from concept to full execution – from creating a modern design to providing technical support.
+
+We specialize in software development and integration – ensuring smooth system operation, security, and performance optimization.
+
+We also collaborate with e-commerce platform developers, addressing their daily challenges and offering fast, efficient solutions that allow them to focus on business growth.
             </p>
             <div className="hero-cta">
               <a href="#contact" className="primary-btn">Get in touch</a>

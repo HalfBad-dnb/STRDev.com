@@ -1,22 +1,22 @@
 import React from 'react';
 import './About.css';
 import CV from '../../assets/Deividas Stropus CV (EN).pdf';
+import SectionHeader from '../common/SectionHeader';
 
 const About = () => {
   return (
     <section id="about" className="about">
       <div className="container">
-        <div className="section-header">
-          <h2>About Me</h2>
-          <div className="underline"></div>
-        </div>
+        <SectionHeader 
+          title="About Me"
+          typingTexts={[
+            'About Me',
+            'Who I Am',
+            'My Story',
+            'My Journey'
+          ]}
+        />
         <div className="about-content">
-          <div className="about-image">
-            <div className="image-container">
-              {/* Placeholder for profile image */}
-              <div className="placeholder-image"></div>
-            </div>
-          </div>
           <div className="about-text">
             <h3>Software Developer & Problem Solver</h3>
             <p>

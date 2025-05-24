@@ -1,6 +1,7 @@
 import React from 'react';
 import './Skills.css';
 import { FaReact, FaNodeJs, FaDatabase, FaServer, FaMobile, FaTools } from 'react-icons/fa';
+import SectionHeader from '../common/SectionHeader';
 
 const Skills = () => {
   const skillCategories = [
@@ -45,10 +46,15 @@ const Skills = () => {
   return (
     <section id="skills" className="skills">
       <div className="container">
-        <div className="section-header">
-          <h2>My Skills</h2>
-          <div className="underline"></div>
-        </div>
+        <SectionHeader 
+          title="My Skills"
+          typingTexts={[
+            'My Skills',
+            'Technologies',
+            'Expertise',
+            'Capabilities'
+          ]}
+        />
         <div className="skills-content">
           {skillCategories.map(category => (
             <div className="skill-card" key={category.id}>
