@@ -31,15 +31,15 @@ const About = () => {
             <div className="about-details">
               <div className="detail">
                 <span className="label">Name:</span>
-                <span className="value">STR Dev</span>
+                <span className="value">Deividas Stropus</span>
               </div>
               <div className="detail">
                 <span className="label">Email:</span>
-                <span className="value">contact@strdev.com</span>
+                <span className="value">Dstropus@icloud.com</span>
               </div>
               <div className="detail">
                 <span className="label">Location:</span>
-                <span className="value">San Francisco, CA</span>
+                <span className="value">Klaipeda, Lithuania</span>
               </div>
               <div className="detail">
                 <span className="label">Availability:</span>

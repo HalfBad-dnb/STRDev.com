@@ -2,16 +2,18 @@ import React from 'react';
 import './Projects.css';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import SectionHeader from '../common/SectionHeader';
-import evxImage from '../../assets/evx.png';
+import evxImage from '../../assets/evx.webp';
+import halfbadImage from '../../assets/HalfBad-home.webp';
+import stickyImage from '../../assets/newstickynotes .webp';
 
 const Projects = () => {
   const projects = [
     {
       id: 1,
-      title: 'E-Commerce Platform',
+      title: 'Artist portfolio and shop',
       description: 'A full-stack e-commerce application with product management, shopping cart, and payment integration.',
       technologies: ['React', 'Node.js', 'Express', 'MongoDB', 'Stripe'],
-      image: 'project-placeholder.jpg',
+      image: halfbadImage,
       githubLink: 'https://github.com',
       liveLink: 'https://project-demo.com'
     },
@@ -26,40 +28,14 @@ const Projects = () => {
     },
     {
       id: 3,
-      title: 'Real Estate Listing Platform',
-      description: 'Property listing and search application with advanced filtering, maps integration, and user authentication.',
+      title: 'Sticky notes web application',
+      description: 'Sticky notes web application with free global board , private boards and user authentication.',
       technologies: ['React', 'Node.js', 'PostgreSQL', 'GraphQL', 'AWS'],
-      image: 'project-placeholder.jpg',
+      image: stickyImage,
       githubLink: 'https://github.com',
-      liveLink: 'https://project-demo.com'
+      liveLink: 'https://stickynotesapp.com'
     },
-    {
-      id: 4,
-      title: 'Health & Fitness Tracker',
-      description: 'A mobile-first application for tracking workouts, nutrition, and health metrics with data visualization.',
-      technologies: ['React Native', 'Express', 'MongoDB', 'Chart.js'],
-      image: 'project-placeholder.jpg',
-      githubLink: 'https://github.com',
-      liveLink: 'https://project-demo.com'
-    },
-    {
-      id: 5,
-      title: 'Social Media Dashboard',
-      description: 'Analytics dashboard for tracking social media metrics across multiple platforms in real-time.',
-      technologies: ['Vue.js', 'Node.js', 'Express', 'Socket.io'],
-      image: 'project-placeholder.jpg',
-      githubLink: 'https://github.com',
-      liveLink: 'https://project-demo.com'
-    },
-    {
-      id: 6,
-      title: 'Portfolio Website',
-      description: 'A responsive developer portfolio website showcasing projects and skills (this website).',
-      technologies: ['React', 'CSS3', 'React Router'],
-      image: 'project-placeholder.jpg',
-      githubLink: 'https://github.com',
-      liveLink: 'https://project-demo.com'
-    }
+
   ];
 
   return (

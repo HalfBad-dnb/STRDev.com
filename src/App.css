@@ -38,10 +38,17 @@ body {
 }
 
 .container {
-  width: 90%;
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 1rem;
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 90%;
+    padding: 0 1.5rem;
+  }
 }
 
 main {
@@ -88,11 +95,17 @@ button, input, textarea, select {
 
 /* Section styling */
 section {
-  padding: 6rem 0;
+  padding: 4rem 0;
   position: relative;
   background: transparent !important; /* Force transparency */
   border-radius: 4px;
   margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+  section {
+    padding: 6rem 0;
+  }
 }
 
 section:nth-child(even) {
@@ -101,7 +114,27 @@ section:nth-child(even) {
 
 h1, h2, h3, h4, h5, h6 {
   color: var(--color-text-primary);
-  margin-bottom: 1rem;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  word-wrap: break-word;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+@media (min-width: 768px) {
+  h1 {
+    font-size: 3rem;
+  }
+  
+  h2 {
+    font-size: 2.5rem;
+  }
 }
 
 a {

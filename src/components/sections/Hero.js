@@ -2,7 +2,7 @@ import React from 'react';
 import './Hero.css';
 import { FaGithub, FaLinkedin, FaArrowDown } from 'react-icons/fa';
 import TypingEffect from '../effects/TypingEffect';
-import profileImage from '../../assets/strdev.jpg';
+import profileImage from '../../assets/strdev.webp';
 
 const Hero = () => {
   return (

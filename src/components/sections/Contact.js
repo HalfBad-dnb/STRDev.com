@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import emailjs from '@emailjs/browser';
+import { FaSpinner } from 'react-icons/fa';
 import './Contact.css';
-import { FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
 import SectionHeader from '../common/SectionHeader';
 
 const Contact = () => {
@@ -11,6 +12,15 @@ const Contact = () => {
     message: ''
   });
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState('');
+  
+  // EmailJS configuration
+  const EMAILJS_CONFIG = {
+    SERVICE_ID: 'service_y3l495l',
+    TEMPLATE_ID: 'template_dhnf81v',
+    PUBLIC_KEY: 'bVNtetP6Re7iuyNJ2'
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -20,20 +30,38 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // In a real application, you would handle form submission here
-    // For now, just simulate a successful submission
-    setFormSubmitted(true);
-    setFormData({
-      name: '',
-      email: '',
-      subject: '',
-      message: ''
-    });
-    setTimeout(() => {
-      setFormSubmitted(false);
-    }, 5000);
+    setError('');
+    setIsLoading(true);
+
+    try {
+      await emailjs.send(
+        EMAILJS_CONFIG.SERVICE_ID,
+        EMAILJS_CONFIG.TEMPLATE_ID,
+        {
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+          time: new Date().toLocaleString()
+        },
+        EMAILJS_CONFIG.PUBLIC_KEY
+      );
+
+      setFormSubmitted(true);
+      setFormData({
+        name: '',
+        email: '',
+        subject: '',
+        message: ''
+      });
+    } catch (err) {
+      console.error('Failed to send email:', err);
+      setError('Failed to send message. Please try again later.');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -50,38 +78,7 @@ const Contact = () => {
           ]}
         />
         <div className="contact-content">
-          <div className="contact-info">
-            <h3>Contact Information</h3>
-            <p>Feel free to reach out to me! I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.</p>
-            
-            <div className="contact-details">
-              <div className="contact-item">
-                <div className="icon"><FaEnvelope /></div>
-                <div className="text">
-                  <h4>Email</h4>
-                  <p>contact@strdev.com</p>
-                </div>
-              </div>
-              
-              <div className="contact-item">
-                <div className="icon"><FaPhone /></div>
-                <div className="text">
-                  <h4>Phone</h4>
-                  <p>+1 (555) 123-4567</p>
-                </div>
-              </div>
-              
-              <div className="contact-item">
-                <div className="icon"><FaMapMarkerAlt /></div>
-                <div className="text">
-                  <h4>Location</h4>
-                  <p>San Francisco, CA</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <div className="contact-form">
+<div className="contact-form">
             <h3>Send Me a Message</h3>
             {formSubmitted ? (
               <div className="form-success">
@@ -136,7 +133,20 @@ const Contact = () => {
                   ></textarea>
                 </div>
                 
-                <button type="submit" className="submit-btn">Send Message</button>
+                <button 
+                  type="submit" 
+                  className="submit-btn"
+                  disabled={isLoading}
+                >
+                  {isLoading ? (
+                    <>
+                      <FaSpinner className="spinner" /> Sending...
+                    </>
+                  ) : (
+                    'Send Message'
+                  )}
+                </button>
+                {error && <p className="error-message">{error}</p>}
               </form>
             )}
           </div>
