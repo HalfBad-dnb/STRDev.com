@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import emailjs from '@emailjs/browser';
 import { FaSpinner } from 'react-icons/fa';
 import './Contact.css';
@@ -15,18 +15,41 @@ const Contact = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
   
-  // EmailJS configuration
-  const EMAILJS_CONFIG = {
-    SERVICE_ID: 'service_y3l495l',
-    TEMPLATE_ID: 'template_dhnf81v',
-    PUBLIC_KEY: 'bVNtetP6Re7iuyNJ2'
+  // EmailJS configuration from environment variables
+  const emailConfig = useMemo(() => ({
+    serviceId: process.env.REACT_APP_EMAILJS_SERVICE_ID || '',
+    templateId: process.env.REACT_APP_EMAILJS_TEMPLATE_ID || '',
+    publicKey: process.env.REACT_APP_EMAILJS_PUBLIC_KEY || ''
+  }), []);
+
+  // Sanitize input to prevent XSS
+  const sanitizeInput = (input) => {
+    if (!input) return '';
+    return input
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#x27;');
   };
+
+  // Verify environment variables on component mount
+  useEffect(() => {
+    const missingVars = [];
+    if (!emailConfig.serviceId) missingVars.push('REACT_APP_EMAILJS_SERVICE_ID');
+    if (!emailConfig.templateId) missingVars.push('REACT_APP_EMAILJS_TEMPLATE_ID');
+    if (!emailConfig.publicKey) missingVars.push('REACT_APP_EMAILJS_PUBLIC_KEY');
+    
+    if (missingVars.length > 0) {
+      console.error('Missing required environment variables:', missingVars.join(', '));
+    }
+  }, [emailConfig]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
-      [name]: value
+      [name]: sanitizeInput(value)
     });
   };
 
@@ -36,9 +59,13 @@ const Contact = () => {
     setIsLoading(true);
 
     try {
+      if (!emailConfig.serviceId || !emailConfig.templateId || !emailConfig.publicKey) {
+        throw new Error('Email configuration is incomplete');
+      }
+
       await emailjs.send(
-        EMAILJS_CONFIG.SERVICE_ID,
-        EMAILJS_CONFIG.TEMPLATE_ID,
+        emailConfig.serviceId,
+        emailConfig.templateId,
         {
           name: formData.name,
           email: formData.email,
@@ -46,7 +73,7 @@ const Contact = () => {
           message: formData.message,
           time: new Date().toLocaleString()
         },
-        EMAILJS_CONFIG.PUBLIC_KEY
+        emailConfig.publicKey
       );
 
       setFormSubmitted(true);

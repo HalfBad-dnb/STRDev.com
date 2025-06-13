@@ -5,40 +5,97 @@
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
+    
+    <!-- Security Headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="X-Frame-Options" content="DENY" />
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+    <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()" />
+    
+    <!-- Content Security Policy for EmailJS -->
+    <meta http-equiv="Content-Security-Policy" content="
+      default-src 'self';
+      script-src 'self' 'unsafe-inline' https://cdn.emailjs.com https://api.emailjs.com;
+      connect-src 'self' https://api.emailjs.com https://cdn.emailjs.com;
+      style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+      font-src 'self' https://fonts.gstatic.com;
+      img-src 'self' data: https:;
+      object-src 'none';
+      base-uri 'self';
+      form-action 'self';
+      frame-ancestors 'none';
+      upgrade-insecure-requests;
+    " />
+    
+    <!-- SEO and Social Meta Tags -->
     <meta
       name="description"
-      content="Web site created using create-react-app"
+      content="STRDev.lt - Professional web development portfolio showcasing modern React applications and innovative solutions"
     />
+    <meta name="keywords" content="web development, React, JavaScript, portfolio, frontend developer" />
+    <meta name="author" content="STRDev" />
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="STRDev.lt - Web Development Portfolio" />
+    <meta property="og:description" content="Professional web development portfolio showcasing modern React applications" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://strdev.lt" />
+    <meta property="og:image" content="%PUBLIC_URL%/og-image.png" />
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="STRDev.lt - Web Development Portfolio" />
+    <meta name="twitter:description" content="Professional web development portfolio showcasing modern React applications" />
+    <meta name="twitter:image" content="%PUBLIC_URL%/twitter-image.png" />
+    
+    <!-- Favicon and App Icons -->
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <link rel="icon" href="/strdev.ico" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
-
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>STRDev.lt</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="%PUBLIC_URL%/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="%PUBLIC_URL%/favicon-16x16.png" />
+    
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    
+    <!-- Preconnect to External Domains for Performance -->
+    <link rel="preconnect" href="https://api.emailjs.com" />
+    <link rel="preconnect" href="https://cdn.emailjs.com" />
+    <link rel="dns-prefetch" href="https://api.emailjs.com" />
+    
+    <!-- Prevent FOUC (Flash of Unstyled Content) -->
+    <style>
+      html {
+        visibility: hidden;
+        opacity: 0;
+      }
+    </style>
+    
+    <title>STRDev.lt - Professional Web Development Portfolio</title>
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <noscript>
+      <div style="text-align: center; padding: 50px; font-family: Arial, sans-serif;">
+        <h1>JavaScript Required</h1>
+        <p>You need to enable JavaScript to run this application.</p>
+        <p>This portfolio uses modern web technologies that require JavaScript to function properly.</p>
+      </div>
+    </noscript>
+    
+    <!-- Main React App Container -->
     <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+    
+    <!-- Fallback for older browsers -->
+    <script nomodule>
+      document.documentElement.classList.add('no-js');
+    </script>
+    
+    <!-- Make page visible after load to prevent FOUC -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        document.documentElement.style.visibility = 'visible';
+        document.documentElement.style.opacity = '1';
+      });
+    </script>
   </body>
 </html>
