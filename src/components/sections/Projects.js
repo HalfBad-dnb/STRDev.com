@@ -12,9 +12,9 @@ const Projects = () => {
       id: 1,
       title: 'Artist portfolio and shop',
       description: 'A full-stack e-commerce application with product management, shopping cart, and payment integration.',
-      technologies: ['React', 'Node.js', 'Express', 'MongoDB', 'Stripe'],
+      technologies: ['React', 'Node.js', 'PostgreSQL', 'Stripe', 'JavaScript', 'Java', 'HTML', 'CSS'],
       image: halfbadImage,
-      githubLink: 'https://github.com',
+      githubLink: 'https://github.com/HalfBad-dnb/Half-Bad',
       liveLink: 'https://project-demo.com'
     },
     {
@@ -32,7 +32,7 @@ const Projects = () => {
       description: 'Sticky notes web application with free global board , private boards and user authentication.',
       technologies: ['React', 'Node.js', 'PostgreSQL', 'GraphQL', 'AWS'],
       image: stickyImage,
-      githubLink: 'https://github.com',
+      githubLink: 'https://github.com/HalfBad-dnb/Sticky-Notes',
       liveLink: 'https://stickynotesapp.com'
     },
 
