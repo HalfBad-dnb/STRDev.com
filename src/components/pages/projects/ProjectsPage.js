@@ -105,7 +105,12 @@ const Projects = () => {
             pagination={{
               clickable: true,
             }}
-            navigation={true}
+            navigation={{
+              nextEl: '.swiper-button-next',
+              prevEl: '.swiper-button-prev',
+              disabledClass: 'swiper-button-disabled',
+              hiddenClass: 'swiper-button-hidden'
+            }}
             modules={[EffectCoverflow, Pagination, Navigation]}
             className="mySwiper"
             breakpoints={{
@@ -150,6 +155,7 @@ const Projects = () => {
               </SwiperSlide>
             ))}
           </Swiper>
+          <div className="swipe-hint">Swipe to navigate</div>
         </div>
         <div className="projects-cta">
           <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="primary-btn">

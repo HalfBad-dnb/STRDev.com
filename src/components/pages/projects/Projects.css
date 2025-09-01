@@ -134,8 +134,12 @@
   }
   
   .swiper-button-next,
-  .swiper-button-prev {
-    display: none;
+  .swiper-button-prev,
+  .swiper-button-next.swiper-button-hidden,
+  .swiper-button-prev.swiper-button-hidden,
+  .swiper-button-next.swiper-button-disabled,
+  .swiper-button-prev.swiper-button-disabled {
+    display: none !important;
   }
   
   .project-card {
@@ -144,6 +148,22 @@
   }
   
   .projects {
-    padding: 2rem 0;
+    padding: 2rem 0 3rem;
+    position: relative;
   }
+  
+  .swipe-hint {
+    display: block;
+    text-align: center;
+    color: #64ffda;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+    font-family: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
+    opacity: 0.7;
+  }
+}
+
+/* Hide swipe hint on desktop */
+.swipe-hint {
+  display: none;
 }
