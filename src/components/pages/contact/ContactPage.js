@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useMemo } from 'react';
+import { useNavigate } from 'react-router-dom';
 import emailjs from '@emailjs/browser';
-import { FaSpinner } from 'react-icons/fa';
-import './Contact.css';
-import SectionHeader from '../common/SectionHeader';
+import { FaSpinner, FaPaperPlane } from 'react-icons/fa';
+import '../contact/Contact.css';
 
-const Contact = () => {
+const ContactPage = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -14,15 +15,13 @@ const Contact = () => {
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
-  
-  // EmailJS configuration from environment variables
+
   const emailConfig = useMemo(() => ({
     serviceId: process.env.REACT_APP_EMAILJS_SERVICE_ID || '',
     templateId: process.env.REACT_APP_EMAILJS_TEMPLATE_ID || '',
     publicKey: process.env.REACT_APP_EMAILJS_PUBLIC_KEY || ''
   }), []);
 
-  // Sanitize input to prevent XSS
   const sanitizeInput = (input) => {
     if (!input) return '';
     return input
@@ -33,7 +32,6 @@ const Contact = () => {
       .replace(/'/g, '&#x27;');
   };
 
-  // Verify environment variables on component mount
   useEffect(() => {
     const missingVars = [];
     if (!emailConfig.serviceId) missingVars.push('REACT_APP_EMAILJS_SERVICE_ID');
@@ -47,10 +45,10 @@ const Contact = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
+    setFormData(prev => ({
+      ...prev,
       [name]: sanitizeInput(value)
-    });
+    }));
   };
 
   const handleSubmit = async (e) => {
@@ -94,22 +92,25 @@ const Contact = () => {
   return (
     <section id="contact" className="contact">
       <div className="container">
-        <SectionHeader 
-          title="Get In Touch"
-          subtitle="Have a question or want to work together? Feel free to reach out!"
-          typingTexts={[
-            'Get In Touch',
-            'Contact Me',
-            'Reach Out',
-            'Let\'s Connect'
-          ]}
-        />
         <div className="contact-content">
-<div className="contact-form">
-            <h3>Send Me a Message</h3>
+          <div className="contact-form">
+            <h3><FaPaperPlane style={{marginRight: '10px'}} /> Send Me a Message</h3>
             {formSubmitted ? (
               <div className="form-success">
                 <p>Thank you for your message! I will get back to you soon.</p>
+                <button 
+                  onClick={() => navigate('/')} 
+                  className="back-home-btn"
+                  style={{
+                    maxWidth: '200px',
+                    margin: '0 auto',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                  }}
+                >
+                  <span>Back to Home</span>
+                </button>
               </div>
             ) : (
               <form onSubmit={handleSubmit}>
@@ -157,6 +158,7 @@ const Contact = () => {
                     value={formData.message}
                     onChange={handleChange}
                     required
+                    rows="6"
                   ></textarea>
                 </div>
                 
@@ -183,4 +185,4 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+export default ContactPage;

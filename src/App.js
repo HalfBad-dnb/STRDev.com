@@ -1,30 +1,33 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Header from './components/layout/Header';
-import Footer from './components/layout/Footer';
 import Hero from './components/sections/Hero';
-import About from './components/sections/About';
-import Skills from './components/sections/Skills';
-import Projects from './components/sections/Projects';
-import Contact from './components/sections/Contact';
 import CodeSnippets from './components/effects/CodeSnippets';
+import ContactPage from './components/pages/contact/ContactPage';
+import ProjectsPage from './components/pages/projects/ProjectsPage';
+import SkillsPage from './components/pages/skills/SkillsPage';
+import ScrollToTop from './components/common/ScrollToTop';
 
 function App() {
   return (
-    <div className="App">
-      <CodeSnippets />
-      <div className="content-wrapper">
-        <Header />
-        <main>
-          <Hero />
-          <About />
-          <Skills />
-          <Projects />
-          <Contact />
-        </main>
-        <Footer />
+    <Router>
+      <div className="App">
+        <CodeSnippets />
+        <ScrollToTop />
+        <div className="content-wrapper">
+          <Header />
+          <main>
+            <Routes>
+              <Route path="/" element={<Hero />} />
+              <Route path="/contact" element={<ContactPage />} />
+              <Route path="/projects" element={<ProjectsPage />} />
+              <Route path="/skills" element={<SkillsPage />} />
+            </Routes>
+          </main>
+        </div>
       </div>
-    </div>
+    </Router>
   );
 }
 

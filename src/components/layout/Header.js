@@ -1,21 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import './Header.css';
-import { FaBars, FaTimes } from 'react-icons/fa';
+import { FaHome, FaProjectDiagram, FaPaperPlane, FaTools } from 'react-icons/fa';
 
 const Header = () => {
-  const [isNavOpen, setIsNavOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-
-  const toggleNav = () => {
-    setIsNavOpen(!isNavOpen);
-    // Toggle body scroll when mobile menu is open
-    document.body.style.overflow = isNavOpen ? 'auto' : 'hidden';
-  };
-
-  // Close mobile menu when clicking on overlay
-  const closeNav = () => {
-    setIsNavOpen(false);
-    document.body.style.overflow = 'auto';
+  const location = useLocation();
+  
+  // Check if current path matches the nav item
+  const isActive = (path) => {
+    return location.pathname === path || 
+           (path === '/projects' && location.pathname.startsWith('/projects'));
   };
 
   // Handle scroll effect for header
@@ -31,34 +26,17 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [scrolled]);
 
-  // Close menu when clicking on a link
-  const handleNavClick = () => {
-    closeNav();
-  };
-
   return (
     <header className={`header ${scrolled ? 'scrolled' : ''}`}>
       <div className="container">
-        <div className="logo">
-          <a href="#home" onClick={handleNavClick}>STR<span>Dev</span></a>
-        </div>
-        <nav className={`nav ${isNavOpen ? 'active' : ''}`}>
+        <nav className="nav">
           <ul className="nav-links">
-            <li><a href="#home" onClick={handleNavClick}>Home</a></li>
-            <li><a href="#about" onClick={handleNavClick}>About</a></li>
-            <li><a href="#skills" onClick={handleNavClick}>Skills</a></li>
-            <li><a href="#projects" onClick={handleNavClick}>Projects</a></li>
-            <li><a href="#contact" onClick={handleNavClick}>Contact</a></li>
+            <li><Link to="/" className={isActive('/') ? 'active' : ''} title="Home"><FaHome className="nav-icon" /></Link></li>
+            <li><Link to="/skills" className={isActive('/skills') ? 'active' : ''} title="Skills"><FaTools className="nav-icon" /></Link></li>
+            <li><Link to="/projects" className={isActive('/projects') ? 'active' : ''} title="Projects"><FaProjectDiagram className="nav-icon" /></Link></li>
+            <li><Link to="/contact" className={`cta-button ${isActive('/contact') ? 'active' : ''}`} title="Contact"><FaPaperPlane className="nav-icon" /></Link></li>
           </ul>
-          <button className="close-nav" onClick={toggleNav} aria-label="Close menu">
-            <FaTimes />
-          </button>
         </nav>
-        {!isNavOpen && (
-          <button className="hamburger" onClick={toggleNav} aria-label="Open menu">
-            <FaBars />
-          </button>
-        )}
       </div>
     </header>
   );

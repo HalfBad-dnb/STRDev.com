@@ -9,7 +9,7 @@
   z-index: -1; /* Negative z-index to ensure it stays behind all content */
   pointer-events: none;
   overflow: hidden;
-  background: linear-gradient(135deg, rgba(10, 25, 47, 0.98) 0%, rgba(17, 34, 64, 0.98) 100%);
+  background: linear-gradient(135deg, rgb(0, 0, 0) 0%, rgba(0, 13, 36, 0.98) 100%);
 }
 
 /* Base code snippet style */
@@ -30,66 +30,66 @@
   line-height: 1.4;
   color: rgba(255, 255, 255, 1); /* Base text color, now white */
   text-shadow: 0 0 10px rgba(100, 255, 218, 0.8); /* Enhanced glow effect */
-  background: rgba(13, 17, 23, 0.85); /* GitHub-like dark background */
+  background: rgba(10, 13, 18, 0.95); /* Darker background with higher opacity */
 }
 
 /* Language-specific themes */
 .code-snippet.javascript-theme {
-  background-color: rgba(40, 44, 52, 0.75);
+  background-color: rgba(20, 22, 30, 0.95);
   border: 1px solid rgba(97, 175, 239, 0.6);
   box-shadow: 0 0 25px rgba(97, 175, 239, 0.35);
 }
 
 .code-snippet.python-theme {
-  background-color: rgba(35, 39, 46, 0.75);
+  background-color: rgba(18, 20, 25, 0.95);
   border: 1px solid rgba(255, 203, 107, 0.6);
   box-shadow: 0 0 25px rgba(255, 203, 107, 0.35);
 }
 
 .code-snippet.rust-theme {
-  background-color: rgba(45, 43, 46, 0.75);
+  background-color: rgba(25, 22, 25, 0.95);
   border: 1px solid rgba(249, 130, 108, 0.6);
   box-shadow: 0 0 25px rgba(249, 130, 108, 0.35);
 }
 
 .code-snippet.csharp-theme {
-  background-color: rgba(30, 40, 50, 0.75);
+  background-color: rgba(15, 20, 30, 0.95);
   border: 1px solid rgba(78, 201, 176, 0.6);
   box-shadow: 0 0 25px rgba(78, 201, 176, 0.35);
 }
 
 .code-snippet.sql-theme {
-  background-color: rgba(27, 39, 56, 0.75);
+  background-color: rgba(14, 20, 35, 0.95);
   border: 1px solid rgba(86, 156, 214, 0.6);
   box-shadow: 0 0 25px rgba(86, 156, 214, 0.4);
 }
 
 .code-snippet.go-theme {
-  background-color: rgba(32, 39, 52, 0.75);
+  background-color: rgba(16, 20, 30, 0.95);
   border: 1px solid rgba(83, 214, 177, 0.6);
   box-shadow: 0 0 25px rgba(83, 214, 177, 0.35);
 }
 
 .code-snippet.vue-theme {
-  background-color: rgba(36, 41, 51, 0.75);
+  background-color: rgba(18, 21, 30, 0.95);
   border: 1px solid rgba(65, 184, 131, 0.6);
   box-shadow: 0 0 25px rgba(65, 184, 131, 0.35);
 }
 
 .code-snippet.java-theme {
-  background-color: rgba(43, 48, 59, 0.75);
+  background-color: rgba(22, 24, 30, 0.95);
   border: 1px solid rgba(223, 97, 97, 0.6);
   box-shadow: 0 0 25px rgba(223, 97, 97, 0.35);
 }
 
 .code-snippet.redux-theme {
-  background-color: rgba(40, 35, 55, 0.75);
+  background-color: rgba(20, 18, 30, 0.95);
   border: 1px solid rgba(118, 74, 188, 0.6);
   box-shadow: 0 0 25px rgba(118, 74, 188, 0.35);
 }
 
 .code-snippet.swift-theme {
-  background-color: rgba(39, 40, 45, 0.75);
+  background-color: rgba(20, 21, 25, 0.95);
   border: 1px solid rgba(255, 122, 69, 0.6);
   box-shadow: 0 0 25px rgba(255, 122, 69, 0.35);
 }
@@ -108,15 +108,15 @@
 }
 
 .code-snippet.high-opacity {
-  background-color: rgba(40, 44, 52, 0.85);
+  background-color: rgba(8, 10, 15, 0.98);
 }
 
 .code-snippet.medium-opacity {
-  background-color: rgba(40, 44, 52, 0.75);
+  background-color: rgba(20, 22, 30, 0.95);
 }
 
 .code-snippet.low-opacity {
-  background-color: rgba(40, 44, 52, 0.65);
+  background-color: rgba(12, 14, 20, 0.95);
 }
 
 .code-snippet.rounded {

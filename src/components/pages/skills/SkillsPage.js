@@ -1,7 +1,7 @@
 import React from 'react';
-import './Skills.css';
+import './SkillsPage.css';
 import { FaReact, FaNodeJs, FaDatabase, FaServer, FaMobile, FaTools } from 'react-icons/fa';
-import SectionHeader from '../common/SectionHeader';
+import SectionHeader from '../../common/SectionHeader';
 
 const Skills = () => {
   const skillCategories = [

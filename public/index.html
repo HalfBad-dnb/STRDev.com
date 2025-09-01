@@ -6,39 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     
-    <!-- Security Headers -->
-    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
-    <meta http-equiv="X-Frame-Options" content="DENY" />
-    <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
-    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
-    <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()" />
-    
-    <!-- Content Security Policy for EmailJS -->
-    <meta http-equiv="Content-Security-Policy" content="
-      default-src 'self';
-      script-src 'self' 'unsafe-inline' https://cdn.emailjs.com https://api.emailjs.com;
-      connect-src 'self' https://api.emailjs.com https://cdn.emailjs.com;
-      style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
-      font-src 'self' https://fonts.gstatic.com;
-      img-src 'self' data: https:;
-      object-src 'none';
-      base-uri 'self';
-      form-action 'self';
-      frame-ancestors 'none';
-      upgrade-insecure-requests;
-    " />
+    <!-- Security Headers are now handled by Netlify -->
     
     <!-- SEO and Social Meta Tags -->
     <meta
       name="description"
-      content="STRDev.lt - Professional web development portfolio showcasing modern React applications and innovative solutions"
+      content="STRDev.lt"
     />
     <meta name="keywords" content="web development, React, JavaScript, portfolio, frontend developer" />
     <meta name="author" content="STRDev" />
     
     <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="STRDev.lt - Web Development Portfolio" />
-    <meta property="og:description" content="Professional web development portfolio showcasing modern React applications" />
+    <meta property="og:title" content="STRDev.lt" />
+    <meta property="og:description" content="Professional web development solutions" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://strdev.lt" />
     <meta property="og:image" content="%PUBLIC_URL%/og-image.png" />

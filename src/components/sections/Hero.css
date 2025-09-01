@@ -1,30 +1,35 @@
 .hero {
-  min-height: 100vh;
+  height: 100%;
   display: flex;
   align-items: center;
-  padding: 100px 0 50px; /* Adjusted padding for mobile */
+  justify-content: center;
+  margin: 0;
+  padding-top: 80px; /* Add space for the fixed header */
   position: relative;
   background: transparent !important;
-  overflow: hidden;
+  overflow-y: auto;
+  flex: 1;
 }
 
 .hero-content {
   max-width: 1200px;
   width: 100%;
   position: relative;
-  padding: 1.5rem;
+  padding: 2rem 1.5rem;
+  margin: auto;
   border-radius: 8px;
   z-index: 1;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  justify-content: center;
   align-items: center;
   text-align: center;
+  height: 100%;
 }
 
 @media (min-width: 768px) {
   .hero-content {
-    padding: 2rem;
+    padding: 1.5rem;
     display: grid;
     grid-template-columns: 1fr 2fr;
     gap: 3rem;
@@ -49,6 +54,11 @@
 
 .hero-image {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .hero-image .image-container {
@@ -153,15 +163,19 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  margin-bottom: 2rem;
   width: 100%;
   max-width: 300px;
+  margin: 0 auto;
+  padding: 0;
+  justify-content: center;
+  align-items: center;
 }
 
 @media (min-width: 480px) {
   .hero-cta {
     flex-direction: row;
     max-width: 100%;
+    gap: 1.5rem;
   }
 }
 
@@ -202,6 +216,11 @@
 .hero-social {
   display: flex;
   gap: 1.5rem;
+  margin: 1.5rem 0 0;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  min-height: 48px; /* Match button height */
 }
 
 .hero-social a {
@@ -214,40 +233,6 @@
   color: #64ffda;
 }
 
-.scroll-indicator {
-  position: absolute;
-  bottom: 1.5rem;
-  left: 50%;
-  transform: translateX(-50%);
-  animation: bounce 2s infinite;
-  cursor: pointer;
-  display: none; /* Hide on mobile */
-}
-
-@media (min-width: 768px) {
-  .scroll-indicator {
-    display: block; /* Show on larger screens */
-    bottom: 2rem;
-  }
-}
-
-.scroll-indicator a {
-  display: flex;
-  color: #64ffda;
-  font-size: 1.5rem;
-}
-
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
-    transform: translateY(0);
-  }
-  40% {
-    transform: translateY(-20px);
-  }
-  60% {
-    transform: translateY(-10px);
-  }
-}
 
 @media (max-width: 992px) {
   .hero-content {
