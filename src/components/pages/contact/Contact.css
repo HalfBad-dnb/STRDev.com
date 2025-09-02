@@ -85,34 +85,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: rgba(10, 25, 47, 0.6);
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
-  border-radius: 8px;
-  padding: 2rem;
-  box-shadow: var(--shadow-lg);
-  border: 1px solid var(--border-color);
-  transition: var(--transition);
+  background: transparent;
+  padding: 2rem 0;
   width: 100%;
   max-width: 600px;
   margin: 0 auto;
   box-sizing: border-box;
   position: relative;
-  overflow: hidden;
-}
-
-.contact-content::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(10, 25, 47, 0.6);
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
-  border-radius: 8px;
-  z-index: -1;
 }
 
 .contact-content:hover {

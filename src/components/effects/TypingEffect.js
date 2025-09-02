@@ -1,6 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import './TypingEffect.css';
 
+// Helper function to find the longest string in an array
+const findLongestString = (arr) => {
+  if (!arr || arr.length === 0) return '';
+  return arr.reduce((longest, current) => 
+    current.length > longest.length ? current : longest, '');
+};
+
 const TypingEffect = ({ texts, typingSpeed = 100, deletingSpeed = 50, delayBetween = 2000 }) => {
   const [displayedText, setDisplayedText] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -50,10 +57,18 @@ const TypingEffect = ({ texts, typingSpeed = 100, deletingSpeed = 50, delayBetwe
     }
   }, [displayedText, currentIndex, isTyping, texts, typingSpeed, deletingSpeed, delayBetween]);
 
+  // Calculate the width based on the longest text
+  const longestText = findLongestString(texts || []);
+  
   return (
     <div className="typing-effect">
-      <span className="typing-text">{displayedText}</span>
-      <span className={`caret ${showCaret ? 'visible' : 'hidden'}`}>|</span>
+      <div className="typing-text" style={{ width: `${longestText.length}ch` }}>
+        <div className="text-container">
+          <span className="visible-text">{displayedText}</span>
+          <span className={`caret ${showCaret ? 'visible' : 'hidden'}`}></span>
+        </div>
+        <span className="invisible-text" aria-hidden="true">{longestText}</span>
+      </div>
     </div>
   );
 };

@@ -2,12 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Header from './components/layout/Header';
-import Hero from './components/sections/Hero';
+import Hero from './components/sections/hero/Hero';
 import CodeSnippets from './components/effects/CodeSnippets';
 import CodeSnippetsMobile from './components/effects/CodeSnippetsMobile';
 import ContactPage from './components/pages/contact/ContactPage';
 import ProjectsPage from './components/pages/projects/ProjectsPage';
 import SkillsPage from './components/pages/skills/SkillsPage';
+import Services from './components/sections/services/Services';
 import ScrollToTop from './components/common/ScrollToTop';
 
 function App() {
@@ -31,7 +32,12 @@ function App() {
           <Header />
           <main>
             <Routes>
-              <Route path="/" element={<Hero />} />
+              <Route path="/" element={
+                <>
+                  <Hero />
+                  <Services />
+                </>
+              } />
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/projects" element={<ProjectsPage />} />
               <Route path="/skills" element={<SkillsPage />} />

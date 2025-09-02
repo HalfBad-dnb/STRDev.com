@@ -1,21 +1,52 @@
 .typing-effect {
-  display: inline-flex;
+  display: flex;
+  justify-content: center;
   align-items: center;
+  font-family: 'Courier New', monospace;
+  width: 100%;
 }
 
 .typing-text {
   display: inline-block;
   white-space: nowrap;
-  overflow: hidden;
+  position: relative;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.text-container {
+  display: inline-block;
+  position: relative;
+}
+
+.visible-text {
+  display: inline-block;
+  position: relative;
+}
+
+.invisible-text {
+  visibility: hidden;
+  height: 0;
+  display: inline-block;
+  position: absolute;
 }
 
 .caret {
   display: inline-block;
-  font-weight: 100;
-  color: #64ffda;
-  font-size: 1.2em;
-  margin-left: 2px;
-  transition: opacity 0.1s;
+  width: 2px;
+  height: 1em;
+  background-color: #64ffda;
+  box-shadow: 0 0 2px #64ffda;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%) scaleY(0.7);
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  from, to { opacity: 1; }
+  50% { opacity: 0; }
 }
 
 .caret.visible {
