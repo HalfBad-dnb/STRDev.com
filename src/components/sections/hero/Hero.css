@@ -96,7 +96,25 @@
   line-height: 1.6;
   opacity: 0;
   animation: fadeIn 0.8s ease-out 0.4s forwards;
-  padding: 0 1rem;
+  padding: 2.5rem;
+  background: rgba(10, 25, 47, 0.4);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(100, 255, 218, 0.2);
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.hero-text:hover {
+  transform: translateY(-5px);
+  border-color: #64ffda;
+  box-shadow: 0 15px 30px rgba(100, 255, 218, 0.2);
+  background: rgba(10, 25, 47, 0.6);
+  -webkit-backdrop-filter: blur(25px);
+  backdrop-filter: blur(25px);
 }
 
 @media (min-width: 768px) {
@@ -117,7 +135,7 @@
 }
 
 .title {
-  color: #8892b0;
+  color: #e3e6ee;
   font-size: clamp(1.5rem, 5vw, 3rem);
   font-weight: 600;
   margin: 1rem 0 0;
